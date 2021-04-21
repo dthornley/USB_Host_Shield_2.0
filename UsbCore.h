@@ -49,7 +49,11 @@ typedef MAX3421e<P3, P2> MAX3421E; // The Intel Galileo supports much faster rea
 #elif defined(ESP8266)
 typedef MAX3421e<P15, P5> MAX3421E; // ESP8266 boards
 #elif defined(ESP32)
+#if defined(ARDUINO_WESP32)
+typedef MAX3421e<P5, P4> MAX3421E; // WESP32 board
+#else
 typedef MAX3421e<P5, P17> MAX3421E; // ESP32 boards
+#endif
 #elif (defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__))
 typedef MAX3421e<Pb4, Pb3> MAX3421E; // Sanguino
 #else

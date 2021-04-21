@@ -1624,7 +1624,17 @@ MAKE_PIN(P19, 19); // MISO
 MAKE_PIN(P23, 23); // MOSI
 MAKE_PIN(P18, 18); // SCK
 MAKE_PIN(P5, 5); // SS
+
+#if defined(ARDUINO_WESP32)
+
+// Pin 17 is used by the ethernet interface so switch to pin 4.
+MAKE_PIN(P4, 4); // INT
+
+#else
+
 MAKE_PIN(P17, 17); // INT
+
+#endif
 
 #endif
 
